@@ -18,7 +18,7 @@ public class Moduloconexao {
         String driver = "org.postgresql.Driver";
         String url = "jdbc:postgresql://localhost:5432/dbinfox";
         String user = "postgres";
-        String password = "Mae191161";
+        String password = "Mae19116";
 
         try {
             Class.forName(driver);

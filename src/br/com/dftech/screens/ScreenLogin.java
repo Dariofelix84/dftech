@@ -5,6 +5,7 @@
 package br.com.dftech.screens;
 import java.sql.*;
 import br.com.dftech.dal.Moduloconexao;
+import javax.swing.ax.swing.Icon;
 
 
 public class ScreenLogin extends javax.swing.JFrame {
@@ -18,8 +19,10 @@ public class ScreenLogin extends javax.swing.JFrame {
         //System.out.println(conexao);
         if(conexao != null){
             lblStatus.setText("Conectado");
+            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/dftech/icons/dbconectado.png")));
         }else {
             lblStatus.setText("Não Conectado");
+            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/dftech/icons/dbnaoconectado.png")));
         }
     }
 
@@ -56,6 +59,7 @@ public class ScreenLogin extends javax.swing.JFrame {
         btnLogin.setText("Login");
 
         lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/dftech/icons/dbnaoconectado.png"))); // NOI18N
+        lblStatus.setText("Não conectado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,20 +67,19 @@ public class ScreenLogin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblStatus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLogin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))))
-                .addContainerGap(11, Short.MAX_VALUE))
+                        .addGap(6, 6, 6)
+                        .addComponent(lblStatus)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField1)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
+                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,12 +92,11 @@ public class ScreenLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLogin)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         pack();
