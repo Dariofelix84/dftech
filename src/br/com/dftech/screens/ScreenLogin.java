@@ -29,6 +29,7 @@ public class ScreenLogin extends javax.swing.JFrame {
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
                 this.dispose();
+                conexao.close();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválido(s)");
             }
