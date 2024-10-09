@@ -32,14 +32,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 666, Short.MAX_VALUE)
+            .addGap(0, 807, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 362, Short.MAX_VALUE)
+            .addGap(0, 502, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(823, 511));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

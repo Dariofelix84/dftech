@@ -3,47 +3,50 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.dftech.screens;
+
 import java.sql.*;
 import br.com.dftech.dal.Moduloconexao;
 import javax.swing.JOptionPane;
 import javax.swing.ax.swing.Icon;
 
-
 public class ScreenLogin extends javax.swing.JFrame {
-   Connection conexao = null;
-   PreparedStatement pst = null;
-   ResultSet rs = null;
-   
-   public void logar() {
-       String sql = "select * from tbusuarios where login=? and senha=?";
-       try {
-           pst = conexao.prepareStatement(sql);
-           pst.setString(1, txtUsuario.getText());
-           pst.setString(2, txtSenha.getText());
-           
-           rs = pst.executeQuery();
-           
-           if (rs.next()){
-               TelaPrincipal principal = new TelaPrincipal();
-               principal.setVisible(true);
-           }else {
-               JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválido(s)");
-           }
-           
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, e);
-       }
-   }
-   
+
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    public void logar() {
+        String sql = "select * from tbusuarios where login=? and senha=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtUsuario.getText());
+            String captura = new String(txtSenha.getPassword());
+            pst.setString(2, captura);
+
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                TelaPrincipal principal = new TelaPrincipal();
+                principal.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválido(s)");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
     public ScreenLogin() {
         initComponents();
         conexao = Moduloconexao.conector();
-        //System.out.println(conexao);
-        if(conexao != null){
-            lblStatus.setText("Conectado");
+        
+        if (conexao != null) {
+          
             lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/dftech/icons/dbconectado.png")));
-        }else {
-            lblStatus.setText("Não Conectado");
+        } else {
+           // lblStatus.setText("Não Conectado");
             lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/dftech/icons/dbnaoconectado.png")));
         }
     }
@@ -66,7 +69,6 @@ public class ScreenLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DFtech - Login");
-        setPreferredSize(new java.awt.Dimension(365, 157));
         setResizable(false);
 
         jLabel1.setText("Usuário");
@@ -87,7 +89,6 @@ public class ScreenLogin extends javax.swing.JFrame {
         });
 
         lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/dftech/icons/dbnaoconectado.png"))); // NOI18N
-        lblStatus.setText("Não conectado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
