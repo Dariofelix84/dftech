@@ -14,7 +14,7 @@ import javax.swing.plaf.OptionPaneUI;
 public class Moduloconexao {
 
     public static Connection conector() {
-        java.sql.Connection conexao = null;
+        Connection conexao = null;
         String driver = "org.postgresql.Driver";
         String url = "jdbc:postgresql://localhost:5432/dbinfox";
         String user = "postgres";

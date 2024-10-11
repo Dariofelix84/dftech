@@ -7,7 +7,6 @@ package br.com.dftech.screens;
 import java.sql.*;
 import br.com.dftech.dal.Moduloconexao;
 import javax.swing.JOptionPane;
-import javax.swing.ax.swing.Icon;
 
 public class ScreenLogin extends javax.swing.JFrame {
 
