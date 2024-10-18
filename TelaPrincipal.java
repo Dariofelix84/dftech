@@ -82,7 +82,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblUsuario.setText("Usuário");
 
-        lblData.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblData.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         lblData.setText("Data");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/dftech/icons/x.png"))); // NOI18N
@@ -199,9 +199,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(lblUsuario)
-                        .addGap(53, 53, 53)
+                        .addGap(33, 33, 33)
                         .addComponent(lblData)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -255,6 +255,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaUsuario usuario = new TelaUsuario();
         usuario.setVisible(true);
         desktop.add(usuario);
+        TelaUsuario.txtUsuId.requestFocus();
         
         
     }//GEN-LAST:event_menCadUsuActionPerformed
